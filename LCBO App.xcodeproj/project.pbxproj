@@ -13,6 +13,7 @@
 		DA8750FC1FBF947F00438987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8750FB1FBF947F00438987 /* Assets.xcassets */; };
 		DA8750FF1FBF947F00438987 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8750FD1FBF947F00438987 /* LaunchScreen.storyboard */; };
 		DA8751021FBF947F00438987 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8751011FBF947F00438987 /* main.m */; };
+		DA87510D1FBF967000438987 /* Alcohol.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87510C1FBF967000438987 /* Alcohol.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		DA8750FE1FBF947F00438987 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA8751001FBF947F00438987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA8751011FBF947F00438987 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DA87510B1FBF967000438987 /* Alcohol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Alcohol.h; sourceTree = "<group>"; };
+		DA87510C1FBF967000438987 /* Alcohol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Alcohol.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,17 +61,43 @@
 		DA8750F11FBF947E00438987 /* LCBO App */ = {
 			isa = PBXGroup;
 			children = (
+				DA87510A1FBF951F00438987 /* View */,
+				DA8751091FBF951800438987 /* Controller */,
+				DA8751081FBF951300438987 /* Model */,
 				DA8750F21FBF947F00438987 /* AppDelegate.h */,
 				DA8750F31FBF947F00438987 /* AppDelegate.m */,
-				DA8750F51FBF947F00438987 /* ViewController.h */,
-				DA8750F61FBF947F00438987 /* ViewController.m */,
-				DA8750F81FBF947F00438987 /* Main.storyboard */,
 				DA8750FB1FBF947F00438987 /* Assets.xcassets */,
 				DA8750FD1FBF947F00438987 /* LaunchScreen.storyboard */,
 				DA8751001FBF947F00438987 /* Info.plist */,
 				DA8751011FBF947F00438987 /* main.m */,
 			);
 			path = "LCBO App";
+			sourceTree = "<group>";
+		};
+		DA8751081FBF951300438987 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA87510B1FBF967000438987 /* Alcohol.h */,
+				DA87510C1FBF967000438987 /* Alcohol.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA8751091FBF951800438987 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA8750F51FBF947F00438987 /* ViewController.h */,
+				DA8750F61FBF947F00438987 /* ViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DA87510A1FBF951F00438987 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA8750F81FBF947F00438987 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +173,7 @@
 			files = (
 				DA8750F71FBF947F00438987 /* ViewController.m in Sources */,
 				DA8751021FBF947F00438987 /* main.m in Sources */,
+				DA87510D1FBF967000438987 /* Alcohol.m in Sources */,
 				DA8750F41FBF947F00438987 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
