@@ -10,4 +10,12 @@
 
 @implementation Alcohol
 
+-(instancetype)initWithalcoholname:(NSString *)name image:(UIImage *)image{
+    if (self =[super init]){
+        _name = name;
+        _alcoholImage = image;
+    }
+    return self;
+}
+
 @end

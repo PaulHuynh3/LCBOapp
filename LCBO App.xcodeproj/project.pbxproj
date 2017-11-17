@@ -29,6 +29,7 @@
 		DA8751011FBF947F00438987 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DA87510B1FBF967000438987 /* Alcohol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Alcohol.h; sourceTree = "<group>"; };
 		DA87510C1FBF967000438987 /* Alcohol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Alcohol.m; sourceTree = "<group>"; };
+		DA87510E1FBF9D7500438987 /* Secret.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Secret.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +80,7 @@
 			children = (
 				DA87510B1FBF967000438987 /* Alcohol.h */,
 				DA87510C1FBF967000438987 /* Alcohol.m */,
+				DA87510E1FBF9D7500438987 /* Secret.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
