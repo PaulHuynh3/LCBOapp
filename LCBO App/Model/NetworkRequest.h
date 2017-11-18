@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Product.h"
+#import "Secret.h"
 
 @interface NetworkRequest : NSObject
 
