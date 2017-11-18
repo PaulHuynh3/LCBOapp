@@ -6,9 +6,9 @@
 //  Copyright © 2017 Paul. All rights reserved.
 //
 
-#import "Alcohol.h"
+#import "Product.h"
 
-@implementation Alcohol
+@implementation Product
 
 -(instancetype)initWithalcoholname:(NSString *)name image:(UIImage *)image{
     if (self =[super init]){

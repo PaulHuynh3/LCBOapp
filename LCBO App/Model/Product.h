@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 
-@interface Alcohol : NSObject
+@interface Product : NSObject
 @property NSString* name;
 @property UIImage* alcoholImage;
 
 -(instancetype)initWithalcoholname:(NSString*)name image:(UIImage*)image;
+
 
 @end

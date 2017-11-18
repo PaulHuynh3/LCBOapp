@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA2D477F1FC0EF7400F7B045 /* NetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D477E1FC0EF7400F7B045 /* NetworkRequest.m */; };
 		DA8750F41FBF947F00438987 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8750F31FBF947F00438987 /* AppDelegate.m */; };
 		DA8750F71FBF947F00438987 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8750F61FBF947F00438987 /* ViewController.m */; };
 		DA8750FA1FBF947F00438987 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8750F81FBF947F00438987 /* Main.storyboard */; };
 		DA8750FC1FBF947F00438987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8750FB1FBF947F00438987 /* Assets.xcassets */; };
 		DA8750FF1FBF947F00438987 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8750FD1FBF947F00438987 /* LaunchScreen.storyboard */; };
 		DA8751021FBF947F00438987 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8751011FBF947F00438987 /* main.m */; };
-		DA87510D1FBF967000438987 /* Alcohol.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87510C1FBF967000438987 /* Alcohol.m */; };
+		DA87510D1FBF967000438987 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87510C1FBF967000438987 /* Product.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA2D477D1FC0EF7400F7B045 /* NetworkRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkRequest.h; sourceTree = "<group>"; };
+		DA2D477E1FC0EF7400F7B045 /* NetworkRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkRequest.m; sourceTree = "<group>"; };
 		DA8750EF1FBF947E00438987 /* LCBO App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LCBO App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8750F21FBF947F00438987 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DA8750F31FBF947F00438987 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -27,8 +30,8 @@
 		DA8750FE1FBF947F00438987 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA8751001FBF947F00438987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA8751011FBF947F00438987 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DA87510B1FBF967000438987 /* Alcohol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Alcohol.h; sourceTree = "<group>"; };
-		DA87510C1FBF967000438987 /* Alcohol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Alcohol.m; sourceTree = "<group>"; };
+		DA87510B1FBF967000438987 /* Product.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		DA87510C1FBF967000438987 /* Product.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		DA87510E1FBF9D7500438987 /* Secret.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Secret.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,8 +89,10 @@
 		DA8751081FBF951300438987 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DA87510B1FBF967000438987 /* Alcohol.h */,
-				DA87510C1FBF967000438987 /* Alcohol.m */,
+				DA87510B1FBF967000438987 /* Product.h */,
+				DA87510C1FBF967000438987 /* Product.m */,
+				DA2D477D1FC0EF7400F7B045 /* NetworkRequest.h */,
+				DA2D477E1FC0EF7400F7B045 /* NetworkRequest.m */,
 				DA87510E1FBF9D7500438987 /* Secret.h */,
 			);
 			path = Model;
@@ -182,8 +187,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA8750F71FBF947F00438987 /* ViewController.m in Sources */,
+				DA2D477F1FC0EF7400F7B045 /* NetworkRequest.m in Sources */,
 				DA8751021FBF947F00438987 /* main.m in Sources */,
-				DA87510D1FBF967000438987 /* Alcohol.m in Sources */,
+				DA87510D1FBF967000438987 /* Product.m in Sources */,
 				DA8750F41FBF947F00438987 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
