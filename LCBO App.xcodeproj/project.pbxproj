@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DA2D477F1FC0EF7400F7B045 /* NetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D477E1FC0EF7400F7B045 /* NetworkRequest.m */; };
+		DA2D47821FC22F1C00F7B045 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D47811FC22F1C00F7B045 /* MasterViewController.m */; };
 		DA8750F41FBF947F00438987 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8750F31FBF947F00438987 /* AppDelegate.m */; };
-		DA8750F71FBF947F00438987 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8750F61FBF947F00438987 /* ViewController.m */; };
 		DA8750FA1FBF947F00438987 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8750F81FBF947F00438987 /* Main.storyboard */; };
 		DA8750FC1FBF947F00438987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8750FB1FBF947F00438987 /* Assets.xcassets */; };
 		DA8750FF1FBF947F00438987 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8750FD1FBF947F00438987 /* LaunchScreen.storyboard */; };
@@ -20,11 +20,11 @@
 /* Begin PBXFileReference section */
 		DA2D477D1FC0EF7400F7B045 /* NetworkRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkRequest.h; sourceTree = "<group>"; };
 		DA2D477E1FC0EF7400F7B045 /* NetworkRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkRequest.m; sourceTree = "<group>"; };
+		DA2D47801FC22F1C00F7B045 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		DA2D47811FC22F1C00F7B045 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		DA8750EF1FBF947E00438987 /* LCBO App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LCBO App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8750F21FBF947F00438987 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DA8750F31FBF947F00438987 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DA8750F51FBF947F00438987 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DA8750F61FBF947F00438987 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DA8750F91FBF947F00438987 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA8750FB1FBF947F00438987 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA8750FE1FBF947F00438987 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -101,8 +101,8 @@
 		DA8751091FBF951800438987 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DA8750F51FBF947F00438987 /* ViewController.h */,
-				DA8750F61FBF947F00438987 /* ViewController.m */,
+				DA2D47801FC22F1C00F7B045 /* MasterViewController.h */,
+				DA2D47811FC22F1C00F7B045 /* MasterViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,9 +186,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA8750F71FBF947F00438987 /* ViewController.m in Sources */,
 				DA2D477F1FC0EF7400F7B045 /* NetworkRequest.m in Sources */,
 				DA8751021FBF947F00438987 /* main.m in Sources */,
+				DA2D47821FC22F1C00F7B045 /* MasterViewController.m in Sources */,
 				DA87510D1FBF967000438987 /* Product.m in Sources */,
 				DA8750F41FBF947F00438987 /* AppDelegate.m in Sources */,
 			);

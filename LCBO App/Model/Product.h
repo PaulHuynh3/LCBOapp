@@ -11,6 +11,8 @@
 
 @interface Product : NSObject
 @property NSString* name;
+@property NSString* urlImage;
+
 @property UIImage* alcoholImage;
 
 -(instancetype)initWithalcoholInfo:(NSDictionary*)info;
