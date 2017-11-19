@@ -12,5 +12,6 @@
 
 @interface NetworkRequest : NSObject
 
++ (void)queryProductComplete:(void (^)(NSArray<Product*> *))complete;
 
 @end
