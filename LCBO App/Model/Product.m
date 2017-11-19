@@ -10,10 +10,9 @@
 
 @implementation Product
 
--(instancetype)initWithalcoholname:(NSString *)name image:(UIImage *)image{
+-(instancetype)initWithalcoholInfo:(NSDictionary *)info{
     if (self =[super init]){
-        _name = name;
-        _alcoholImage = image;
+    
     }
     return self;
 }

@@ -13,7 +13,7 @@
 @property NSString* name;
 @property UIImage* alcoholImage;
 
--(instancetype)initWithalcoholname:(NSString*)name image:(UIImage*)image;
+-(instancetype)initWithalcoholInfo:(NSDictionary*)info;
 
 
 @end

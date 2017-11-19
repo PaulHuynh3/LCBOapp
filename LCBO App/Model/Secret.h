@@ -9,7 +9,6 @@
 #ifndef Secret_h
 #define Secret_h
 
-static NSString* LCBO_KEY = @"MDo5NzM4MTE1ZS1jYmU4LTExZTctOGZkNi02ZjkwNDcxMjI5YzU6WHpGWTJoUk9lcm9ERTVMbTQwU00zMkFObTRiUDB0VHNDUFRD
-";
+static NSString* LCBO_KEY = @"MDo5NzM4MTE1ZS1jYmU4LTExZTctOGZkNi02ZjkwNDcxMjI5YzU6WHpGWTJoUk9lcm9ERTVMbTQwU00zMkFObTRiUDB0VHNDUFRD";
 
 #endif /* Secret_h */
