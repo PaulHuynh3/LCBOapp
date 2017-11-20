@@ -23,7 +23,7 @@
     
     //Identification (API key) else we would have to put it in the query.
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:query];
-    [request addValue:[NSString stringWithFormat:@"Token token =%@",LCBO_KEY] forHTTPHeaderField:@"Authorization"];
+    [request addValue:[NSString stringWithFormat:@"Token token=%@",LCBO_KEY] forHTTPHeaderField:@"Authorization"];
     
     
     NSURLSessionTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -50,7 +50,7 @@
         
         NSMutableArray<Product*> *products = [[NSMutableArray alloc]init];
         
-        for (NSDictionary *productInfo in result){
+        for (NSDictionary *productInfo in result[@"result"]){
          
             [products addObject:[[Product alloc]initWithalcoholInfo:productInfo]];
         }
@@ -61,6 +61,29 @@
     //always resume download task to continue while block is retrieving information.
     [downloadTask resume];
     
+}
+
++(void)loadImageForPhoto:(Product *)photo complete:(void (^)(UIImage *))complete{
+    
+    NSURLSessionTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:[photo loadURL]completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if (error != nil){
+            NSLog(@"error in url session:%@",error.localizedDescription);
+            return;
+        }
+        
+        if (((NSHTTPURLResponse*)response).statusCode >= 300){
+            NSLog(@"unexpected http response: %@",response);
+            return;
+        }
+        
+        UIImage *image = [UIImage imageWithData:data];
+        
+        complete(image);
+        
+    }];
+    
+    [downloadTask resume];
 }
 
 

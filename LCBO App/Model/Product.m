@@ -23,4 +23,10 @@
     return self;
 }
 
+-(NSURL*)loadURL{
+    
+    return [NSURL URLWithString:self.urlImage];
+}
+
+
 @end

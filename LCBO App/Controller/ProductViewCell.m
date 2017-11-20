@@ -19,7 +19,20 @@
 @implementation ProductViewCell
 
 -(void)setProduct:(Product *)product{
+    _product = product;
     
+    [NetworkRequest loadImageForPhoto:product complete:^(UIImage *result) {
+
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            //set the product's image property to this result. in case i want to use that property later on for other things.
+            product.image = result;
+            
+            self.productNameLabel.text = product.name;
+            self.productImageView.image = result;
+        }];
+    }];
+    
+ 
     
 }
 

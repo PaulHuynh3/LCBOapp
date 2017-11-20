@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Product.h"
+#import "NetworkRequest.h"
 
 @interface ProductViewCell : UICollectionViewCell
 

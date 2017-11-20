@@ -9,6 +9,7 @@
 #import "MasterViewController.h"
 #import "Product.h"
 #import "NetworkRequest.h"
+#import "ProductViewCell.h"
 
 @interface MasterViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -21,8 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [NetworkRequest queryProductComplete:^(NSArray<Product *> *productList) {
+        //set the products array here with the query data.
         self.products = productList;
-        [self.collectionView reloadData];
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self.collectionView reloadData];
+        }];
+        
     }];
     
 }
@@ -35,7 +40,13 @@
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
+    ProductViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellIdentifier" forIndexPath:indexPath];
     
+    Product* alcoholProduct = self.products[indexPath.row];
+    
+    [cell setProduct:alcoholProduct];
+    
+    return cell;
 }
 
 

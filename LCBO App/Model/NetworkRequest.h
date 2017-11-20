@@ -13,5 +13,6 @@
 @interface NetworkRequest : NSObject
 
 + (void)queryProductComplete:(void (^)(NSArray<Product*> *))complete;
++(void)loadImageForPhoto:(Product *)photo complete:(void (^)(UIImage *))complete;
 
 @end
