@@ -10,6 +10,7 @@
 #import "Product.h"
 #import "NetworkRequest.h"
 #import "ProductViewCell.h"
+#import "DetailViewController.h"
 
 @interface MasterViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -50,6 +51,16 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if([segue.identifier isEqualToString:@"dvcSegue"]){
+    DetailViewController* dvc = [segue destinationViewController];
+        ProductViewCell *cell = (ProductViewCell*)sender;
+        
+        //set the dvc product property here.
+        dvc.product = cell.product;
+        
+    }
+    
     
     
 }

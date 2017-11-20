@@ -52,7 +52,7 @@
                                         <connections>
                                             <outlet property="productImageView" destination="kIg-dC-IGu" id="7PQ-R2-pbl"/>
                                             <outlet property="productNameLabel" destination="SHN-Vf-58x" id="aPq-Bt-DuG"/>
-                                            <segue destination="gMO-pd-HWc" kind="show" id="lNP-95-7KR"/>
+                                            <segue destination="gMO-pd-HWc" kind="show" identifier="dvcSegue" id="lNP-95-7KR"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -97,10 +97,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="LXg-lE-AiN"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="THY-zZ-6ja" id="nvT-W3-YMv"/>
+                        <outlet property="productNameLabel" destination="mon-ph-BWw" id="kIH-sc-RDm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxq-sH-n7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1375.2" y="31.934032983508249"/>
+            <point key="canvasLocation" x="1559" y="32"/>
         </scene>
         <!--Item-->
         <scene sceneID="Aqv-Yv-j1Z">
