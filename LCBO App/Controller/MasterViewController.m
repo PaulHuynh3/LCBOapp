@@ -15,6 +15,7 @@
 @interface MasterViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSArray <Product*>* products;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *productSegmentedControl;
 
 @end
 
@@ -32,6 +33,23 @@
     }];
     
 }
+
+
+
+- (IBAction)changeVarietyTapped:(UISegmentedControl *)sender {
+    switch (self.productSegmentedControl.selectedSegmentIndex) {
+        case 0:
+            <#statements#>
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
+
+//MARK: Collectionview datasource.
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     

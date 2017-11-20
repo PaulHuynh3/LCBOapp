@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bcV-al-0X2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iSa-AU-5LZ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0Y8-MK-zGQ">
@@ -61,6 +61,18 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="gQw-Uc-bfS"/>
                                 </connections>
                             </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="O84-kx-8MF">
+                                <rect key="frame" x="53" y="64" width="269" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Promotions"/>
+                                    <segment title="Seasonal"/>
+                                    <segment title="Kosher"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeVarietyTapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="cbx-J4-cTH"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -68,11 +80,12 @@
                     <navigationItem key="navigationItem" id="BaE-L3-CAE"/>
                     <connections>
                         <outlet property="collectionView" destination="iSa-AU-5LZ" id="lPO-eR-bBy"/>
+                        <outlet property="productSegmentedControl" destination="O84-kx-8MF" id="c2e-tf-2gz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="703.20000000000005" y="31.934032983508249"/>
+            <point key="canvasLocation" x="1042.4000000000001" y="31.934032983508249"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="XYn-uS-xvo">
@@ -104,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxq-sH-n7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1559" y="32"/>
+            <point key="canvasLocation" x="1896.8" y="31.934032983508249"/>
         </scene>
         <!--Item-->
         <scene sceneID="Aqv-Yv-j1Z">
@@ -123,7 +136,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vr-rF-mhh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-34" y="32"/>
+            <point key="canvasLocation" x="182" y="32"/>
         </scene>
     </scenes>
 </document>

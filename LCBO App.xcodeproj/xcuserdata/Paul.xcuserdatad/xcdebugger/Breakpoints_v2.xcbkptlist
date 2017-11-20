@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LCBO App/Controller/MasterViewController.m"
-            timestampString = "532849383.422878"
+            timestampString = "532901038.497308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
@@ -68,12 +68,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LCBO App/Controller/MasterViewController.m"
-            timestampString = "532849383.423191"
+            timestampString = "532901038.497475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "-collectionView:numberOfItemsInSection:"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "-changeVarietyTapped:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -84,12 +84,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LCBO App/Controller/MasterViewController.m"
-            timestampString = "532849383.423269"
+            timestampString = "532901038.497524"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "-changeVarietyTapped:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -100,12 +100,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LCBO App/Controller/MasterViewController.m"
-            timestampString = "532849383.423335"
+            timestampString = "532901038.497562"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "-changeVarietyTapped:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
