@@ -122,9 +122,46 @@
     }];
     //resumes the task to mainthread.
     [downloadTask resume];
+}
+
++(void)queryKosherProduct:(void (^)(NSArray<Product*> *))complete{
     
+    NSURL* query = [NSURL URLWithString:@"http://lcboapi.com/products?where=Is_kosher"];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:query];
+    [request addValue:[NSString stringWithFormat:@"Token token=%@",LCBO_KEY] forHTTPHeaderField:@"Authorization"];
+    
+    NSURLSessionTask* downloadTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+       
+        if (error != nil){
+            NSLog(@"There is an error: %@",error.localizedDescription);
+            abort();
+        }
+        
+        if (((NSHTTPURLResponse*)response).statusCode >= 300){
+            NSLog(@"The statuse code error:%@",response);
+            abort();
+        }
+        
+        NSError * err = nil;
+        NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+        
+        NSMutableArray <Product*>*kosherProducts = [[NSMutableArray alloc]init];
+        
+        for (NSDictionary* item in result){
+            
+            [kosherProducts addObject:[[Product alloc]initWithalcoholInfo:item]];
+        }
+        
+        complete(kosherProducts);
+        
+    }];
+    [downloadTask resume];
     
 }
+
+
+
 
 
 @end
