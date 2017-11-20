@@ -10,6 +10,7 @@
 		DA2D477F1FC0EF7400F7B045 /* NetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D477E1FC0EF7400F7B045 /* NetworkRequest.m */; };
 		DA2D47821FC22F1C00F7B045 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D47811FC22F1C00F7B045 /* MasterViewController.m */; };
 		DA2D47851FC2309300F7B045 /* ProductViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D47841FC2309300F7B045 /* ProductViewCell.m */; };
+		DA2D47881FC29FA200F7B045 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D47871FC29FA200F7B045 /* DetailViewController.m */; };
 		DA8750F41FBF947F00438987 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8750F31FBF947F00438987 /* AppDelegate.m */; };
 		DA8750FA1FBF947F00438987 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8750F81FBF947F00438987 /* Main.storyboard */; };
 		DA8750FC1FBF947F00438987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8750FB1FBF947F00438987 /* Assets.xcassets */; };
@@ -25,6 +26,8 @@
 		DA2D47811FC22F1C00F7B045 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		DA2D47831FC2309300F7B045 /* ProductViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductViewCell.h; sourceTree = "<group>"; };
 		DA2D47841FC2309300F7B045 /* ProductViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductViewCell.m; sourceTree = "<group>"; };
+		DA2D47861FC29FA200F7B045 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		DA2D47871FC29FA200F7B045 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		DA8750EF1FBF947E00438987 /* LCBO App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LCBO App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8750F21FBF947F00438987 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DA8750F31FBF947F00438987 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 				DA2D47811FC22F1C00F7B045 /* MasterViewController.m */,
 				DA2D47831FC2309300F7B045 /* ProductViewCell.h */,
 				DA2D47841FC2309300F7B045 /* ProductViewCell.m */,
+				DA2D47861FC29FA200F7B045 /* DetailViewController.h */,
+				DA2D47871FC29FA200F7B045 /* DetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				DA87510D1FBF967000438987 /* Product.m in Sources */,
 				DA2D47851FC2309300F7B045 /* ProductViewCell.m in Sources */,
 				DA8750F41FBF947F00438987 /* AppDelegate.m in Sources */,
+				DA2D47881FC29FA200F7B045 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
