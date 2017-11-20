@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [NetworkRequest queryProductComplete:^(NSArray<Product *> *productList) {
+    [NetworkRequest queryPromotionalProduct:^(NSArray<Product *> *productList) {
         //set the products array here with the query data.
         self.products = productList;
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{

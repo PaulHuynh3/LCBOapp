@@ -17,9 +17,9 @@
 
 @implementation NetworkRequest
 
-+ (void)queryProductComplete:(void (^)(NSArray<Product*> *))complete {
++ (void)queryPromotionalProduct:(void (^)(NSArray<Product*> *))complete {
     
-    NSURL *query = [NSURL URLWithString:[NSString stringWithFormat:@"https://lcboapi.com/products?has_value_added_promotion&order=price_in_cents.desc"]];
+    NSURL *query = [NSURL URLWithString:[NSString stringWithFormat:@"https://lcboapi.com/products?where=has_value_added_promotion&order=price_in_cents.desc"]];
     
     //Identification (API key) else we would have to put it in the query.
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:query];
@@ -84,6 +84,32 @@
     }];
     
     [downloadTask resume];
+}
+
++(void)queryLimitedTimeOffer:(void (^)(NSArray<Product*> *))complete{
+    
+    NSURL* query = [NSURL URLWithString:@"http://lcboapi.com/products?where=has_limited_time_offer&order=price_in_cents.desc"];
+    
+    
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc]initWithURL:query];
+    [request addValue:[NSString stringWithFormat:@"Token token=%@",LCBO_KEY] forHTTPHeaderField:@"Authorization"];
+
+    
+    NSURLSessionTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+       
+        //check error
+        if (error != nil){
+            NSLog(@"%@",error.localizedDescription);
+            return;
+        }
+        
+        //check if status code is greater than 300
+        if (((NSHTTPURLResponse*)response).statusCode )
+        
+    }];
+    
+    
+    
 }
 
 
