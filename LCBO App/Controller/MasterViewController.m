@@ -38,12 +38,26 @@
 
 - (IBAction)changeVarietyTapped:(UISegmentedControl *)sender {
     switch (self.productSegmentedControl.selectedSegmentIndex) {
+//            self.productSegmentedControl.isEnabled == false;
         case 0:
-            <#statements#>
-            break;
+            [NetworkRequest queryPromotionalProduct:^(NSArray<Product *> *results) {
+                [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                    self.products = results;
+                    [self.collectionView reloadData];
+                }];
+            }];
             
-        default:
-            break;
+        case 1:
+            [NetworkRequest queryLimitedTimeOffer:^(NSArray<Product *> *results) {
+                [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                    self.products = results
+                    [self.collectionView reloadData]
+                }];
+            }];
+//            
+//        default:
+//            NSLog(@"Error in segmented Control");
+//            break;
     }
     
 }
