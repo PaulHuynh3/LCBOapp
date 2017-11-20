@@ -95,19 +95,33 @@
     [request addValue:[NSString stringWithFormat:@"Token token=%@",LCBO_KEY] forHTTPHeaderField:@"Authorization"];
 
     
-    NSURLSessionTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSURLSessionTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
        
         //check error
         if (error != nil){
             NSLog(@"%@",error.localizedDescription);
-            return;
+            abort();
         }
         
         //check if status code is greater than 300
-        if (((NSHTTPURLResponse*)response).statusCode )
+        if (((NSHTTPURLResponse*)response).statusCode >= 300){
+            NSLog(@"error in response= %@",response);
+            abort();
+        }
+        
+        NSError* err = nil;
+        NSDictionary* results = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+        
+        NSMutableArray <Product*>* limitedProduct = [[NSMutableArray alloc]init];
+        for (NSDictionary* aProduct in results){
+            [limitedProduct addObject:[[Product alloc]initWithalcoholInfo:aProduct]];
+        }
+        //save array to completion handler
+        complete(limitedProduct);
         
     }];
-    
+    //resumes the task to mainthread.
+    [downloadTask resume];
     
     
 }
