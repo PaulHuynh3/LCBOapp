@@ -24,7 +24,7 @@
     [NetworkRequest loadImageForPhoto:product complete:^(UIImage *result) {
 
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            //set the product's image property to this result. in case i want to use that property later on for other things.
+            //set the product's image property to this result. so i can use it again for the dvc without having to do another network request.
             product.image = result;
             
             self.productImageView.image = product.image;

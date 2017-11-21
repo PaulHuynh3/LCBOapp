@@ -65,7 +65,7 @@
 
 +(void)loadImageForPhoto:(Product *)photo complete:(void (^)(UIImage *))complete{
     
-    NSURLSessionTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:[photo loadURL]completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSURLSessionTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithURL:[photo loadImageURL]completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         if (error != nil){
             NSLog(@"error in url session:%@",error.localizedDescription);
@@ -88,7 +88,7 @@
 
 +(void)queryLimitedTimeOffer:(void (^)(NSArray<Product*> *))complete{
     
-    NSURL* query = [NSURL URLWithString:@"http://lcboapi.com/products?where=has_limited_time_offer&order=price_in_cents.desc"];
+    NSURL* query = [NSURL URLWithString:@"https://lcboapi.com/products?where=has_limited_time_offer&order=price_in_cents.desc"];
     
     
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc]initWithURL:query];
@@ -126,7 +126,7 @@
 
 +(void)queryKosherProduct:(void (^)(NSArray<Product*> *))complete{
     
-    NSURL* query = [NSURL URLWithString:@"http://lcboapi.com/products?where=Is_kosher"];
+    NSURL* query = [NSURL URLWithString:@"https://lcboapi.com/products?where=Is_kosher"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:query];
     [request addValue:[NSString stringWithFormat:@"Token token=%@",LCBO_KEY] forHTTPHeaderField:@"Authorization"];

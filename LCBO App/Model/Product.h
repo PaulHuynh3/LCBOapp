@@ -13,11 +13,10 @@
 @property NSString* name;
 @property NSString* urlImage; //we'll use this url for a networkqueryloadimages
 @property UIImage *image;
-@property UIImage* alcoholImage;
 
 -(instancetype)initWithalcoholInfo:(NSDictionary*)info;
 
--(NSURL*)loadURL;
+-(NSURL*)loadImageURL;
 
 
 @end

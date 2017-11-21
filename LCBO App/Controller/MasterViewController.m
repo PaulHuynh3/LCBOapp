@@ -23,45 +23,80 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [NetworkRequest queryPromotionalProduct:^(NSArray<Product *> *productList) {
-        //set the products array here with the query data.
-        self.products = productList;
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self.collectionView reloadData];
-        }];
-        
-    }];
-    
+    self.productSegmentedControl.selectedSegmentIndex = 0;
+    [self setSegmentedControl];
 }
 
 
+-(void)setSegmentedControl{
+    if(self.productSegmentedControl.selectedSegmentIndex == 0){
+        [NetworkRequest queryPromotionalProduct:^(NSArray<Product *> *results) {
+            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                self.products = results;
+                [self.collectionView reloadData];
+            }];
+        }];
+    } else if (self.productSegmentedControl.selectedSegmentIndex == 1){
+        [NetworkRequest queryLimitedTimeOffer:^(NSArray<Product *> *results) {
+            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                self.products = results;
+                [self.collectionView reloadData];
+            }];
+        }];
+    } else if (self.productSegmentedControl.selectedSegmentIndex == 2){
+        [NetworkRequest queryKosherProduct:^(NSArray<Product *> *results) {
+            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                self.products = results;
+                [self.collectionView reloadData];
+            }];
+        }];
+    }
+    
+}
 
 - (IBAction)changeVarietyTapped:(UISegmentedControl *)sender {
+    [self indexChange];
+}
+    
+-(void)indexChange{
     switch (self.productSegmentedControl.selectedSegmentIndex) {
-//            self.productSegmentedControl.isEnabled == false;
-        case 0:
+        case 0:{
             [NetworkRequest queryPromotionalProduct:^(NSArray<Product *> *results) {
                 [[NSOperationQueue mainQueue]addOperationWithBlock:^{
                     self.products = results;
                     [self.collectionView reloadData];
                 }];
             }];
+        }
             
-        case 1:
+        case 1: {
             [NetworkRequest queryLimitedTimeOffer:^(NSArray<Product *> *results) {
                 [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-                    self.products = results
-                    [self.collectionView reloadData]
+                    self.products = results;
+                    [self.collectionView reloadData];
                 }];
             }];
-//            
-//        default:
-//            NSLog(@"Error in segmented Control");
-//            break;
+        }
+            
+        case 2:{
+            [NetworkRequest queryKosherProduct:^(NSArray<Product *> *results) {
+                
+                [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                    self.products = results;
+                    [self.collectionView reloadData];
+                    
+                }];
+                
+            }];
+            
+        }
+            
+        default:{
+            NSLog(@"Error in segmented Control");
+            break;
+        }
     }
-    
 }
-
 
 //MARK: Collectionview datasource.
 
@@ -86,10 +121,12 @@
     
     if([segue.identifier isEqualToString:@"dvcSegue"]){
     DetailViewController* dvc = [segue destinationViewController];
-        ProductViewCell *cell = (ProductViewCell*)sender;
         
-        //set the dvc product property here.
-        dvc.product = cell.product;
+        //another way setting the sender as the cell
+//        ProductViewCell *cell = (ProductViewCell*)sender;
+//        dvc.product = cell.product;
+        
+        dvc.product = self.products[self.collectionView.indexPathsForSelectedItems[0].row];
         
     }
     
