@@ -12,10 +12,11 @@
 #import "ProductViewCell.h"
 #import "DetailViewController.h"
 
-@interface MasterViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface MasterViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSArray <Product*>* products;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *productSegmentedControl;
+@property (nonatomic) UISearchController *searchController;
 
 @end
 
@@ -25,7 +26,33 @@
     [super viewDidLoad];
     self.productSegmentedControl.selectedSegmentIndex = 0;
     [self indexChange];
+    [self configureSearchBar];
 }
+
+
+#pragma mark SearchBar
+
+
+-(void)configureSearchBar{
+    self.searchController = [[UISearchController alloc]initWithSearchResultsController:nil];
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+    self.searchController.searchBar.delegate = self;
+    self.definesPresentationContext = YES;
+    
+    //adds search bar programatically
+    self.navigationItem.titleView = self.searchController.searchBar;
+}
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
+    
+    NSString* searchText = searchController.searchBar.text;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[cd] %@", searchText];
+    self.products = []
+    
+}
+
+#pragma mark Segmented Control
 
 -(void)indexChange{
     switch (self.productSegmentedControl.selectedSegmentIndex) {
@@ -84,7 +111,7 @@
     [self indexChange];
 }
 
-//MARK: Collectionview datasource.
+#pragma mark collectionview datasource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
@@ -119,6 +146,7 @@
     
     
 }
+
 
 
 @end
