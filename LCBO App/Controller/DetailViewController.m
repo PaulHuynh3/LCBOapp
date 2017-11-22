@@ -39,13 +39,15 @@
 }
 
 -(void)passCurrentLocation:(CLLocation *)location{
-    [NetworkRequest queryNearestLocationWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude product:self.product.productID display:5 complete:^(NSArray<Store*> *results) {
-       
+    [NetworkRequest queryLocationProduct:location.coordinate.latitude longitude:location.coordinate.longitude product:self.product.productID display:5 complete:^(NSArray<Store *> *results) {
         [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+            
             [self.mapView addAnnotations:results];
             
             self.mapView.showsUserLocation = YES;
+            //show the span of map relative to annotation positioning.
             [self.mapView showAnnotations:results animated:YES];
+            
         }];
         
     }];

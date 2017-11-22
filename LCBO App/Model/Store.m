@@ -16,9 +16,26 @@
         _info = info;
         _latitude = [info[@"latitude"]doubleValue];
         _longitude = [info[@"longitude"]doubleValue];
-        
+        _address = info[@"name"];
+        _intersection = info[@"address_line_1"];
     }
     return self;
 }
+
+-(CLLocationCoordinate2D)coordinate{
+    
+    return CLLocationCoordinate2DMake(self.latitude, self.longitude);
+}
+
+//override default properties of mkannotation and setting it as the title.
+
+- (NSString *)title {
+    return self.intersection;
+}
+
+- (NSString *)subtitle {
+    return self.address;
+}
+
 
 @end

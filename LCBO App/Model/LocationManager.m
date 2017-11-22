@@ -10,34 +10,38 @@
 @import CoreLocation;
 
 @interface LocationManager ()<CLLocationManagerDelegate>
-@property(nonatomic, strong) CLLocationManager *locationManager;
-@property(nonatomic,strong) CLLocation *lastLocation;
+
+@property(nonatomic, strong) CLLocationManager *clLocationManager;
+
+@property(nonatomic, strong) CLLocation *lastLocation;
 @end
+
 
 @implementation LocationManager
 
 - (instancetype)init
 {
-    if (self = [super init]) {
-        _locationManager = [[CLLocationManager alloc]init];
-        //make it the delegate of cllocationmanager 
-        _locationManager.delegate = self;
-        //prompt user for location
+    self = [super init];
+    if (self) {
+        _clLocationManager = [[CLLocationManager alloc] init];
+        _clLocationManager.delegate = self;
+        //in initializer when this is created it will prompt user for location.
         [self requestLocationPermissionIfNeeded];
         
     }
     return self;
 }
 
+//prompt user to use their location
 - (void)requestLocationPermissionIfNeeded {
     if ([CLLocationManager locationServicesEnabled]) {
         CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
         if (status == kCLAuthorizationStatusNotDetermined) {
             // we can ask for it
-            [self.locationManager requestWhenInUseAuthorization];
+            [self.clLocationManager requestWhenInUseAuthorization];
         } else if (status == kCLAuthorizationStatusAuthorizedAlways
                    || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
-            [self.locationManager requestLocation];
+            [self.clLocationManager requestLocation];
         }
     }
 }
@@ -60,9 +64,11 @@
     //returns an array of user's locations set it to first one.
     CLLocation *location = locations.firstObject;
     
-    //pass in the locationDelegate for DVC.
+    //sets the location for the function to be used in dvc.
     [self.locationDelegate passCurrentLocation:location];
     
 }
 
+
 @end
+

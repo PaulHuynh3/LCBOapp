@@ -196,43 +196,54 @@
     [downloadTask resume];
 }
 
-+(void)queryNearestLocationWithLatitude:(double)latitude longitude:(double)longitude product:(int)productID display:(int)showStores complete:(void (^)(NSArray<Store*>*))complete{
++(void)queryLocationProduct:(double)latitude longitude:(double)longitude product:(int)productId display:(int)stores complete:(void (^)(NSArray<Store*>*))complete{
     
-    NSURL* query = [NSURL URLWithString:[NSString stringWithFormat:@"https://lcboapi.com/stores?lat=%f&lon=%f&product_id=%i",latitude,longitude,productID]];
+    //return only stores that have product_id of seasonal products have to make this link dynamic so that when my seasonal products are returned with these ids..
+    NSURL *queryURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://lcboapi.com/stores?lat=%f&lon=%f&product_id=%i",latitude,longitude,productId]];
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:query];
-    [request addValue:[NSString stringWithFormat:@"Token token=%@",LCBO_KEY] forHTTPHeaderField:@"Authorization"];
+    //header for website
+    NSMutableURLRequest *reqWithHeader = [NSMutableURLRequest requestWithURL:queryURL];
+    [reqWithHeader addValue:[NSString stringWithFormat:@"Token token=%@",LCBO_KEY] forHTTPHeaderField:@"Authorization"];
     
-    NSURLSessionTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-       
-        if (error != nil){
-            NSLog(@"The error is %@",error.localizedDescription);
-            return;
+    NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:reqWithHeader completionHandler:^(NSData * data, NSURLResponse * response, NSError * error) {
+        //happening inside this block of code.
+        // this is where we get the results
+        if (error != nil) {
+            NSLog(@"error in url session: %@", error.localizedDescription);
+            return; // TODO: display an alert or something
+        }
+        // TODO: check the response code we got; if it's >= 300 something is wrong
+        // remember to check status code, we need to cast response to a NSHTTPURLResponse
+        if (((NSHTTPURLResponse*)response).statusCode >= 300) {
+            NSLog(@"Unexpected http response: %@", response);
+            return; // TODO: display an alert or something
         }
         
-        if (((NSHTTPURLResponse*)response).statusCode >= 300){
-            NSLog(@"Error in response %@",response);
-            return;
+        NSError *err = nil;
+        NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+        if (err != nil) {
+            NSLog(@"Something went wrong parsing JSON: %@", err.localizedDescription);
+            abort();
         }
+        //short way of doing [[NSMutableArray alloc]init];
+        NSMutableArray<Store*> *locationArray = [@[] mutableCopy];
         
-        NSError* err = nil;
-        NSMutableArray <Store*> *stores = [[NSMutableArray alloc]init];
         
-        NSDictionary* results = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
-        
-        for(NSDictionary*info in results[@"result"]){
+        for (NSDictionary *locationInfo in result[@"result"]) {
             
-            [stores addObject:[[Store alloc]initWithInfo:info]];
+            [locationArray addObject:[[Store alloc]initWithInfo:locationInfo]];
+            
         }
         
-        //option with how many stores should be displayed.
-        NSArray *numberStores = [stores subarrayWithRange:NSMakeRange(0, MIN(showStores, stores.count)) ];
+        //providing option to show how many stores should be displayed.
+        NSArray *numberOfStores = [locationArray subarrayWithRange:NSMakeRange(0, MIN(stores, locationArray.count))];
         
-        complete(numberStores);
+        //save the mutable array to the completion block.
+        complete(numberOfStores);
         
     }];
-    [downloadTask resume];
-    
+    //always set after block to make sure the program continues to run while block is retriving data.
+    [task resume];
     
 }
 

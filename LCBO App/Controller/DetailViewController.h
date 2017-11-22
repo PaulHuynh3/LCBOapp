@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Product.h"
+#import "Store.h"
 #import "NetworkRequest.h"
 #import "LocationManager.h"
+
 @import MapKit;
 
 @interface DetailViewController : UIViewController
