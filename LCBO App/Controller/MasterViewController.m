@@ -17,6 +17,7 @@
 @property NSArray <Product*>* products;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *productSegmentedControl;
 @property (nonatomic) UISearchController *searchController;
+@property (nonatomic) NSArray* filteredData;
 
 @end
 
@@ -29,14 +30,11 @@
     [self configureSearchBar];
 }
 
-
 #pragma mark SearchBar
-
-
 -(void)configureSearchBar{
     self.searchController = [[UISearchController alloc]initWithSearchResultsController:nil];
     self.searchController.searchResultsUpdater = self;
-    self.searchController.dimsBackgroundDuringPresentation = NO;
+    self.searchController.dimsBackgroundDuringPresentation = YES;
     self.searchController.searchBar.delegate = self;
     self.definesPresentationContext = YES;
     
@@ -48,8 +46,9 @@
     
     NSString* searchText = searchController.searchBar.text;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[cd] %@", searchText];
-    self.products = []
-    
+    //set filteredData array here.
+    self.filteredData = [self.products filteredArrayUsingPredicate:predicate];
+    [self.collectionView reloadData];
 }
 
 #pragma mark Segmented Control
@@ -115,13 +114,22 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
+    if (self.searchController.isActive){
+        return self.filteredData.count;
+    }
+    
     return self.products.count;
     
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
+    
     ProductViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellIdentifier" forIndexPath:indexPath];
+    
+    if (self.searchController.isActive){
+        cell.product = self.filteredData[indexPath.row];
+    }
     
     Product* alcoholProduct = self.products[indexPath.row];
     
