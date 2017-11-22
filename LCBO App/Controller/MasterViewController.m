@@ -36,6 +36,7 @@
                     [self.collectionView reloadData];
                 }];
             }];
+            break;
         }
             
         case 1: {
@@ -45,6 +46,7 @@
                     [self.collectionView reloadData];
                 }];
             }];
+            break;
         }
             
         case 2:{
@@ -57,7 +59,17 @@
                 }];
                 
             }];
-            
+            break;
+        }
+        
+        case 3:{
+            [NetworkRequest queryAllProducts:^(NSArray<Product *> *results) {
+                [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                    self.products = results;
+                    [self.collectionView reloadData];
+                }];
+            }];
+            break;
         }
             
         default:{
