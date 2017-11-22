@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA0A6C5C1FC6098700BF5A45 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0A6C5B1FC6098700BF5A45 /* Store.m */; };
 		DA0A6C5F1FC619EC00BF5A45 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0A6C5E1FC619EC00BF5A45 /* LocationManager.m */; };
+		DA0A6C611FC6250500BF5A45 /* Lighthouselocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = DA0A6C601FC6250500BF5A45 /* Lighthouselocation.gpx */; };
 		DA2D477F1FC0EF7400F7B045 /* NetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D477E1FC0EF7400F7B045 /* NetworkRequest.m */; };
 		DA2D47821FC22F1C00F7B045 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D47811FC22F1C00F7B045 /* MasterViewController.m */; };
 		DA2D47851FC2309300F7B045 /* ProductViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D47841FC2309300F7B045 /* ProductViewCell.m */; };
@@ -26,6 +27,7 @@
 		DA0A6C5B1FC6098700BF5A45 /* Store.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Store.m; sourceTree = "<group>"; };
 		DA0A6C5D1FC619EC00BF5A45 /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		DA0A6C5E1FC619EC00BF5A45 /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		DA0A6C601FC6250500BF5A45 /* Lighthouselocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Lighthouselocation.gpx; path = "LCBO App/Lighthouselocation.gpx"; sourceTree = SOURCE_ROOT; };
 		DA2D477D1FC0EF7400F7B045 /* NetworkRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkRequest.h; sourceTree = "<group>"; };
 		DA2D477E1FC0EF7400F7B045 /* NetworkRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkRequest.m; sourceTree = "<group>"; };
 		DA2D47801FC22F1C00F7B045 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				DA8751001FBF947F00438987 /* Info.plist */,
+				DA0A6C601FC6250500BF5A45 /* Lighthouselocation.gpx */,
 				DA87510A1FBF951F00438987 /* View */,
 				DA8751091FBF951800438987 /* Controller */,
 				DA8751081FBF951300438987 /* Model */,
@@ -193,6 +196,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA0A6C611FC6250500BF5A45 /* Lighthouselocation.gpx in Resources */,
 				DA8750FF1FBF947F00438987 /* LaunchScreen.storyboard in Resources */,
 				DA8750FC1FBF947F00438987 /* Assets.xcassets in Resources */,
 				DA8750FA1FBF947F00438987 /* Main.storyboard in Resources */,

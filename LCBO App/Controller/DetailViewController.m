@@ -42,7 +42,7 @@
     [NetworkRequest queryNearestLocationWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude product:self.product.productID display:5 complete:^(NSArray<Store*> *results) {
        
         [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-            [self.mapView addAnnotation: results];
+            [self.mapView addAnnotations:results];
             
             self.mapView.showsUserLocation = YES;
             [self.mapView showAnnotations:results animated:YES];
@@ -53,6 +53,27 @@
     
 }
 
+#pragma mark - customize annotation views.
+//customize the pin that the user sees
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    //the user's location itself is an annotation pin make sure we do not remove it.
+    if ([annotation class] == MKUserLocation.class) {
+        return nil;
+    }
+    
+    NSString *identifier = @"StorePin";
+    //customize the pin not the view.
+    MKPinAnnotationView *view = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+    if (!view) {
+        view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        view.canShowCallout = YES;
+        view.pinTintColor = [UIColor greenColor];
+    } else {
+        view.annotation = annotation;
+    }
+    
+    return view;
+}
 
 
 
