@@ -9,10 +9,15 @@
 #import <Foundation/Foundation.h>
 @import CoreLocation;
 
-@pro
+@protocol CoreLocationDelegate <NSObject>
+
+- (void)passCurrentLocation:(CLLocation*)location;
+
+@end
 
 @interface LocationManager : NSObject
 
+@property (nonatomic) id<CoreLocationDelegate> locationDelegate;
 
 
 @end
