@@ -196,7 +196,45 @@
     [downloadTask resume];
 }
 
-
++(void)queryNearestLocationWithLatitude:(double)latitude longitude:(double)longitude product:(int)productID display:(int)showStores complete:(void (^)(NSArray<Store*> *results))complete{
+    
+    NSURL* query = [NSURL URLWithString:[NSString stringWithFormat:@"https://lcboapi.com/stores?lat=%f&lon=%f&product_id=%i",latitude,longitude,productID]];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:query];
+    [request addValue:[NSString stringWithFormat:@"Token token=%@",LCBO_KEY] forHTTPHeaderField:@"Authorization"];
+    
+    NSURLSessionTask *downloadTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+       
+        if (error != nil){
+            NSLog(@"The error is %@",error.localizedDescription);
+            return;
+        }
+        
+        if (((NSHTTPURLResponse*)response).statusCode >= 300){
+            NSLog(@"Error in response %@",response);
+            return;
+        }
+        
+        NSError* err = nil;
+        NSMutableArray <Store*> *stores;
+        
+        NSDictionary* results = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+        
+        for(NSDictionary*info in results[@"result"]){
+            
+            [stores addObject:[[Store alloc]initWithInfo:info]];
+        }
+        
+        //option with how many stores should be displayed.
+        NSArray *numberStores = [stores subarrayWithRange:NSMakeRange(0, MIN(showStores, stores.count)) ];
+        
+        complete(numberStores);
+        
+    }];
+    [downloadTask resume];
+    
+    
+}
 
 
 
