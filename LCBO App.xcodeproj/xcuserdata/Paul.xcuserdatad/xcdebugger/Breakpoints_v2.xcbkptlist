@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LCBO App/Model/NetworkRequest.m"
-            timestampString = "533080528.392323"
+            timestampString = "533081060.811488"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LCBO App/Model/NetworkRequest.m"
-            timestampString = "533080528.392449"
+            timestampString = "533081060.812054"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -52,7 +52,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LCBO App/Model/NetworkRequest.m"
-            timestampString = "533080528.392541"
+            timestampString = "533081060.812619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "89"
@@ -68,7 +68,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LCBO App/Model/NetworkRequest.m"
-            timestampString = "533080528.392617"
+            timestampString = "533081060.812934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
@@ -123,6 +123,38 @@
             endingLineNumber = "42"
             landmarkName = "-configureSearchBar"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LCBO App/Model/Store.m"
+            timestampString = "533081060.813492"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-title"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LCBO App/Model/Store.m"
+            timestampString = "533081060.813592"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "Store"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

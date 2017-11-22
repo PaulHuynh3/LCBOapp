@@ -26,9 +26,9 @@
     [self configureView];
     //create instance of locationManager that will have the same properties as the one created in locationmanager.m
     self.locationManager = [[LocationManager alloc]init];
-    //set it as the delegate of locationManager
+    //set it as the delegate of locationManager class
     self.locationManager.locationDelegate = self;
-    //annotations
+    //set this as the annotation delegate...The Store product would act as the delegator.
     self.mapView.delegate = self;
 
 }
@@ -42,6 +42,7 @@
     [NetworkRequest queryLocationProduct:location.coordinate.latitude longitude:location.coordinate.longitude product:self.product.productID display:5 complete:^(NSArray<Store *> *results) {
         [[NSOperationQueue mainQueue]addOperationWithBlock:^{
             
+            //in store.m the annotation's (information like name, address) is override in there.
             [self.mapView addAnnotations:results];
             
             self.mapView.showsUserLocation = YES;

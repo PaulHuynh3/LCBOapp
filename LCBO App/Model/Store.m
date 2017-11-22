@@ -28,11 +28,12 @@
 }
 
 //override default properties of mkannotation and setting it as the title.
-
+//title is mkannotation function
 - (NSString *)title {
     return self.intersection;
 }
 
+//subtitle is also an annotation function.
 - (NSString *)subtitle {
     return self.address;
 }

@@ -19,7 +19,7 @@
 
 + (void)queryPromotionalProduct:(void (^)(NSArray<Product*> *))complete {
     
-    NSURL *query = [NSURL URLWithString:[NSString stringWithFormat:@"https://lcboapi.com/products?where=has_value_added_promotion&order=price_in_cents.desc"]];
+    NSURL *query = [NSURL URLWithString:[NSString stringWithFormat:@"https://lcboapi.com/products?where=has_value_added_promotion&order=price_in_cents.desc&per_page=100&page=1"]];
     
     //Identification (API key) else we would have to put it in the query.
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:query];
