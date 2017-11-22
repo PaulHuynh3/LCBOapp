@@ -68,6 +68,7 @@
                                     <segment title="Promotions"/>
                                     <segment title="Seasonal"/>
                                     <segment title="Kosher"/>
+                                    <segment title="All"/>
                                 </segments>
                                 <connections>
                                     <action selector="indexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="zbC-lu-sAh"/>

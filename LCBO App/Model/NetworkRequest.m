@@ -171,14 +171,29 @@
     NSURLSessionTask *downloadTask = [[NSURLSession sharedSession]dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         if(error != nil){
-            
+            NSLog(@"The error is %@",error.localizedDescription);
+            return;
         }
         
-    }]
+        if (((NSHTTPURLResponse*)response).statusCode >= 300){
+            NSLog(@"there is an error with the response %@",response);
+            return;
+        }
+       
+        NSError* err = nil;
+        NSMutableArray<Product*>* results = [[NSMutableArray alloc]init];
+        NSDictionary* info = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+        
+        for(NSDictionary*dict in info[@"result"]){
+            
+            [results addObject:[[Product alloc]initWithalcoholInfo:dict]];
+        }
+        
+        complete(results);
+        
+    }];
     
-    
-    
-    
+    [downloadTask resume];
 }
 
 

@@ -16,5 +16,6 @@
 +(void)loadImageForPhoto:(Product *)photo complete:(void (^)(UIImage *))complete;
 +(void)queryLimitedTimeOffer:(void (^)(NSArray<Product*> *))complete;
 +(void)queryKosherProduct:(void (^)(NSArray<Product*> *))complete;
++(void)queryAllProducts:(void (^)(NSArray<Product*> *))complete;
 
 @end
