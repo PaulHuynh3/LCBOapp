@@ -161,6 +161,27 @@
     
 }
 
++(void)queryAllProducts:(void (^)(NSArray<Product*> *))complete{
+    
+    NSURL* query = [NSURL URLWithString:[NSString stringWithFormat:@"https://lcboapi.com/products?where_not=is_dead&per_page=100&page=1"]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:query];
+    
+    [request addValue:[NSString stringWithFormat:@"Token token=%@", LCBO_KEY] forHTTPHeaderField:@"Authorization"];
+    
+    NSURLSessionTask *downloadTask = [[NSURLSession sharedSession]dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if(error != nil){
+            
+        }
+        
+    }]
+    
+    
+    
+    
+}
+
+
 
 
 

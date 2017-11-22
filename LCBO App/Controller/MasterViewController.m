@@ -23,7 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.productSegmentedControl.selectedSegmentIndex = 0;
+    [self indexChange];
 }
 
 -(void)indexChange{
@@ -96,8 +97,8 @@
         DetailViewController* dvc = [segue destinationViewController];
         
         //another way setting the sender as the cell
-        //        ProductViewCell *cell = (ProductViewCell*)sender;
-        //        dvc.product = cell.product;
+//                ProductViewCell *cell = (ProductViewCell*)sender;
+//                dvc.product = cell.product;
         
         dvc.product = self.products[self.collectionView.indexPathsForSelectedItems[0].row];
         
