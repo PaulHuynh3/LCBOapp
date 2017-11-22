@@ -23,41 +23,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.productSegmentedControl.selectedSegmentIndex = 0;
-    [self setSegmentedControl];
-}
-
-
--(void)setSegmentedControl{
-    if(self.productSegmentedControl.selectedSegmentIndex == 0){
-        [NetworkRequest queryPromotionalProduct:^(NSArray<Product *> *results) {
-            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-                self.products = results;
-                [self.collectionView reloadData];
-            }];
-        }];
-    } else if (self.productSegmentedControl.selectedSegmentIndex == 1){
-        [NetworkRequest queryLimitedTimeOffer:^(NSArray<Product *> *results) {
-            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-                self.products = results;
-                [self.collectionView reloadData];
-            }];
-        }];
-    } else if (self.productSegmentedControl.selectedSegmentIndex == 2){
-        [NetworkRequest queryKosherProduct:^(NSArray<Product *> *results) {
-            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-                self.products = results;
-                [self.collectionView reloadData];
-            }];
-        }];
-    }
     
 }
 
-- (IBAction)changeVarietyTapped:(UISegmentedControl *)sender {
-    [self indexChange];
-}
-    
 -(void)indexChange{
     switch (self.productSegmentedControl.selectedSegmentIndex) {
         case 0:{
@@ -98,6 +66,11 @@
     }
 }
 
+
+- (IBAction)indexChanged:(UISegmentedControl *)sender {
+    [self indexChange];
+}
+
 //MARK: Collectionview datasource.
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -120,11 +93,11 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
     if([segue.identifier isEqualToString:@"dvcSegue"]){
-    DetailViewController* dvc = [segue destinationViewController];
+        DetailViewController* dvc = [segue destinationViewController];
         
         //another way setting the sender as the cell
-//        ProductViewCell *cell = (ProductViewCell*)sender;
-//        dvc.product = cell.product;
+        //        ProductViewCell *cell = (ProductViewCell*)sender;
+        //        dvc.product = cell.product;
         
         dvc.product = self.products[self.collectionView.indexPathsForSelectedItems[0].row];
         

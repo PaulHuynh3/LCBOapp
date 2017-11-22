@@ -88,10 +88,11 @@
 
 +(void)queryLimitedTimeOffer:(void (^)(NSArray<Product*> *))complete{
     
-    NSURL* query = [NSURL URLWithString:@"https://lcboapi.com/products?where=has_limited_time_offer&order=price_in_cents.desc"];
+    
+    NSURL* query = [NSURL URLWithString:[NSString stringWithFormat:@"https://lcboapi.com/products?where=has_limited_time_offer&order=price_in_cents.desc"]];
     
     
-    NSMutableURLRequest* request = [[NSMutableURLRequest alloc]initWithURL:query];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:query];
     [request addValue:[NSString stringWithFormat:@"Token token=%@",LCBO_KEY] forHTTPHeaderField:@"Authorization"];
 
     
@@ -113,7 +114,7 @@
         NSDictionary* results = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
         
         NSMutableArray <Product*>* limitedProduct = [[NSMutableArray alloc]init];
-        for (NSDictionary* aProduct in results){
+        for (NSDictionary* aProduct in results[@"result"]){
             [limitedProduct addObject:[[Product alloc]initWithalcoholInfo:aProduct]];
         }
         //save array to completion handler
@@ -126,7 +127,7 @@
 
 +(void)queryKosherProduct:(void (^)(NSArray<Product*> *))complete{
     
-    NSURL* query = [NSURL URLWithString:@"https://lcboapi.com/products?where=Is_kosher"];
+    NSURL* query = [NSURL URLWithString:[NSString stringWithFormat:@"https://lcboapi.com/products?where=Is_kosher"]];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:query];
     [request addValue:[NSString stringWithFormat:@"Token token=%@",LCBO_KEY] forHTTPHeaderField:@"Authorization"];
@@ -148,7 +149,7 @@
         
         NSMutableArray <Product*>*kosherProducts = [[NSMutableArray alloc]init];
         
-        for (NSDictionary* item in result){
+        for (NSDictionary* item in result[@"result"]){
             
             [kosherProducts addObject:[[Product alloc]initWithalcoholInfo:item]];
         }

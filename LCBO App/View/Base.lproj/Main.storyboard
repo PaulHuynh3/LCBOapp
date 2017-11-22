@@ -70,7 +70,7 @@
                                     <segment title="Kosher"/>
                                 </segments>
                                 <connections>
-                                    <action selector="changeVarietyTapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="cbx-J4-cTH"/>
+                                    <action selector="indexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="zbC-lu-sAh"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -80,7 +80,7 @@
                     <navigationItem key="navigationItem" id="BaE-L3-CAE"/>
                     <connections>
                         <outlet property="collectionView" destination="iSa-AU-5LZ" id="lPO-eR-bBy"/>
-                        <outlet property="productSegmentedControl" destination="O84-kx-8MF" id="c2e-tf-2gz"/>
+                        <outlet property="productSegmentedControl" destination="O84-kx-8MF" id="PRW-g4-qPt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
