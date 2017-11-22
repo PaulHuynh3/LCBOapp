@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA0A6C5C1FC6098700BF5A45 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0A6C5B1FC6098700BF5A45 /* Store.m */; };
+		DA0A6C5F1FC619EC00BF5A45 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0A6C5E1FC619EC00BF5A45 /* LocationManager.m */; };
 		DA2D477F1FC0EF7400F7B045 /* NetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D477E1FC0EF7400F7B045 /* NetworkRequest.m */; };
 		DA2D47821FC22F1C00F7B045 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D47811FC22F1C00F7B045 /* MasterViewController.m */; };
 		DA2D47851FC2309300F7B045 /* ProductViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2D47841FC2309300F7B045 /* ProductViewCell.m */; };
@@ -23,6 +24,8 @@
 /* Begin PBXFileReference section */
 		DA0A6C5A1FC6098700BF5A45 /* Store.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Store.h; sourceTree = "<group>"; };
 		DA0A6C5B1FC6098700BF5A45 /* Store.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Store.m; sourceTree = "<group>"; };
+		DA0A6C5D1FC619EC00BF5A45 /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		DA0A6C5E1FC619EC00BF5A45 /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		DA2D477D1FC0EF7400F7B045 /* NetworkRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkRequest.h; sourceTree = "<group>"; };
 		DA2D477E1FC0EF7400F7B045 /* NetworkRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkRequest.m; sourceTree = "<group>"; };
 		DA2D47801FC22F1C00F7B045 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
@@ -104,6 +107,8 @@
 				DA0A6C5B1FC6098700BF5A45 /* Store.m */,
 				DA2D477D1FC0EF7400F7B045 /* NetworkRequest.h */,
 				DA2D477E1FC0EF7400F7B045 /* NetworkRequest.m */,
+				DA0A6C5D1FC619EC00BF5A45 /* LocationManager.h */,
+				DA0A6C5E1FC619EC00BF5A45 /* LocationManager.m */,
 				DA87510E1FBF9D7500438987 /* Secret.h */,
 			);
 			path = Model;
@@ -204,6 +209,7 @@
 				DA2D477F1FC0EF7400F7B045 /* NetworkRequest.m in Sources */,
 				DA8751021FBF947F00438987 /* main.m in Sources */,
 				DA2D47821FC22F1C00F7B045 /* MasterViewController.m in Sources */,
+				DA0A6C5F1FC619EC00BF5A45 /* LocationManager.m in Sources */,
 				DA87510D1FBF967000438987 /* Product.m in Sources */,
 				DA2D47851FC2309300F7B045 /* ProductViewCell.m in Sources */,
 				DA8750F41FBF947F00438987 /* AppDelegate.m in Sources */,

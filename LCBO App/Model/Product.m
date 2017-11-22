@@ -18,6 +18,8 @@
         if ([_urlImage isEqual:[NSNull null]]){
             _urlImage = nil;
         }
+        _productID = [info[@"id"]intValue];
+        
     }
     
     return self;

@@ -8,9 +8,10 @@
 
 #import "DetailViewController.h"
 
-@interface DetailViewController ()
+@interface DetailViewController ()<MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *productNameLabel;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
@@ -26,6 +27,9 @@
     self.imageView.image = self.product.image;
     self.productNameLabel.text = self.product.name;
 }
+
+
+
 
 
 
