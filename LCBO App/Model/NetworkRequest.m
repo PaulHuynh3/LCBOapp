@@ -196,7 +196,7 @@
     [downloadTask resume];
 }
 
-+(void)queryNearestLocationWithLatitude:(double)latitude longitude:(double)longitude product:(int)productID display:(int)showStores complete:(void (^)(NSArray<Store*> *results))complete{
++(void)queryNearestLocationWithLatitude:(double)latitude longitude:(double)longitude product:(int)productID display:(int)showStores complete:(void (^)(NSArray<Store*>*))complete{
     
     NSURL* query = [NSURL URLWithString:[NSString stringWithFormat:@"https://lcboapi.com/stores?lat=%f&lon=%f&product_id=%i",latitude,longitude,productID]];
     
@@ -216,7 +216,7 @@
         }
         
         NSError* err = nil;
-        NSMutableArray <Store*> *stores;
+        NSMutableArray <Store*> *stores = [[NSMutableArray alloc]init];
         
         NSDictionary* results = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
         

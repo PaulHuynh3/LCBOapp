@@ -18,5 +18,5 @@
 +(void)queryLimitedTimeOffer:(void (^)(NSArray<Product*> *))complete;
 +(void)queryKosherProduct:(void (^)(NSArray<Product*> *))complete;
 +(void)queryAllProducts:(void (^)(NSArray<Product*> *))complete;
-
++(void)queryNearestLocationWithLatitude:(double)latitude longitude:(double)longitude product:(int)productID display:(int)showStores complete:(void (^)(NSArray<Store*> *results))complete;
 @end

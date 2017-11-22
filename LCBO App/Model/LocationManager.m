@@ -9,7 +9,7 @@
 #import "LocationManager.h"
 @import CoreLocation;
 
-@interface LocationManager ()
+@interface LocationManager ()<CLLocationManagerDelegate>
 @property(nonatomic, strong) CLLocationManager *locationManager;
 @property(nonatomic,strong) CLLocation *lastLocation;
 @end
@@ -20,6 +20,7 @@
 {
     if (self = [super init]) {
         _locationManager = [[CLLocationManager alloc]init];
+        //make it the delegate of cllocationmanager 
         _locationManager.delegate = self;
         //prompt user for location
         [self requestLocationPermissionIfNeeded];
